@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="=button.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="/ImageSources/favicon.ico">
+  <style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #0000cc; 
+  color: white; 
+  border: 2px solid #0000cc;
+}
+
+.button1:hover {
+  background-color: #0000cc;
+  color: black;
+}
+
+.button2 {
+  background-color: #0000cc; 
+  color: white; 
+  border: 2px solid #0000cc;
+}
+
+.button2:hover {
+  background-color: #0000cc;
+  color: black;
+}
+
+</style>
+    <title>Login: MCES10 Software</title>
+</head>
+<script src="./config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+
+
+<body style="background-color:#000000;">
+  <div id="container">
+      <div id="s1">      
+      </div>
+<span>Please Wait</span>
+     </div>
+<center>
+    <div id="loginform" hidden>
+        <form>
+            <div>
+                <h2 style="color:white">Login</h2>
+                <input id="email" name="email" type = "email="user placeholder = "Email Address" name="user" placeholder="Email Address" style="border-radius: 5px;height:30px;font-size:14pt;" class="button button1" />
+            </div>
+           
+          <p>
+            <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="button button1" /></p>
+        </form>
+
+    </div>
+
+    <div id="loggedinuser" hidden>
+        <div>
+            
+        </div>
+
+    </div>
+
+    <script>
+        const loginform = document.getElementById('loginform');
+        const form = loginform.firstElementChild;
+        const loggedinuser = document.getElementById('loggedinuser')
+        const userinfo = document.getElementById('userinfo')
+
+        firebase.initializeApp(firebaseConfig)
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+
+                loginform.hidden = true;
+                loggedinuser.hidden = false;
+                displayname.value = user.displayName
+                console.log("signed in uid:", user.uid);
+            } else {
+                loginform.hidden = false;
+                loggedinuser.hidden = true;
+                console.log("signed out");
+            }
+        });
+
+
+
+        function sentpasswordreset(email) {
+            return new Promise(
+                (fulfilled, rejected) => {
+                    firebase.auth().sendPasswordResetEmail(email)
+                        .then(() => {
+                            // Sent Password Reset
+                        })
+                        .catch((error) => {
+                            rejected(error.message)
+                        });
+                })
+
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            console.log();
+            const email = document.querySelector('#email').value;
+            login(email)
+                .then(
+                    (user) => {
+                        console.log("Sent Password Reset Email", user);
+                    }
+                ).catch(
+                    alert
+                )
+        }
+
+    </script>
+  </center>
+</body>
+
+</html>
