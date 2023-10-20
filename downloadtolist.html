@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="button.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="/ImageSources/favicon.ico">
+  <title>Download: MCES10 Software</title>
+  <style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  
+  font-size: 16px;
+  margin: 16px 4px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #0000cc; 
+  color: white; 
+  border: 2px solid #0000cc;
+}
+
+.button1:hover {
+  background-color: #0000cc;
+  color: black;
+}
+
+.button2 {
+  background-color: #0000cc; 
+  color: white; 
+  border: 2px solid #0000cc;
+}
+
+.button2:hover {
+  background-color: #0000cc;
+  color: black;
+}
+
+</style>
+    <title>Downloads: MCES10 Software</title>
+</head>
+<script src="./config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+
+
+<body style="background-color:#000000;">
+    <nav class="navbar">
+ <!-- LOGO -->
+ <div class="logo">MCES10 Software</div>
+ <!-- NAVIGATION MENU -->
+ <ul class="nav-links">
+ <!-- USING CHECKBOX HACK -->
+ <input type="checkbox" id="checkbox_toggle" />
+ <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+ <!-- NAVIGATION MENUS -->
+ <div class="menu">
+ <li><a href="index.html">Home</a></li>
+ <li><a href="apps.html">Apps</a></li>
+ <li><a href="accountlogin.html">Account</a></li>
+   <li><a href="support.html">Support</a></li>
+ <li><a href="about.html">About</a></li>
+  <li><a href="terms.html">Terms</a></li>
+ </div>
+ </ul>
+ </nav>
+<center>
+    <div id="loginform" hidden>
+        <form>
+            <div>
+                <h2 style="color:white">Login</h2>
+                <input id="email" name="email" type = "email="user placeholder = "Email Address" name="user" placeholder="Email Address" style="border-radius: 5px;height:30px;font-size:14pt;" class="button button1" />
+            </div>
+            <div>
+                
+                <input id="password" name="password" type="password" placeholder = "Password" name="user" placeholder="Password" style="border-radius: 5px;height:30px;font-size:14pt"class="button button1" />
+            </div>
+          <p>
+            <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="button button1" /></p>
+        </form>
+      <p style="color:white">To Sign Up you need the MCES10 Software Account Companion (M.S.A.C) or <a href="accountsignup.html" style="color:coral">Click Here to SignUp</a></p>
+
+    </div>
+ 
+    <div id="loggedinuser" hidden>
+        <div>
+            <form id="userinfo">
+              <h1 style="color:white">Download</h1>
+                <input type="text" id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
+           
+              <h2 style="color:white">Supported platforms: macOS 12+, Windows 10+ (unavalible), Android (unavalible), iOS (in development)</h2>
+   </p>
+    <p>
+      
+</div>
+      <p style="color:black">_</p>
+    <p style="color:black">_</p>
+    <p style="color:black">_</p>
+    <p style="color:black">_</p>
+    <p style="color:black">_</p>
+    <p style="color:black">_</p>
+      <div class="dropdowns">
+  <button class="dropbtn" class="button button1" style="border-radius: 5px;">Choose Your Version</button>
+  <div class="dropdowns-content">
+  <a href="Versions/To-List/To-ListPublicBeta1.zip">macOS</a>
+  </div>
+</div>
+     </p>
+</div>
+              
+   
+       
+    
+                
+            </form>
+      
+        </div>
+
+        <br/>
+      <p>
+        <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Logout</button>
+        </p>
+    </div>
+
+    <script>
+        const loginform = document.getElementById('loginform');
+        const form = loginform.firstElementChild;
+        const loggedinuser = document.getElementById('loggedinuser')
+        const userinfo = document.getElementById('userinfo')
+        const displayname = document.getElementById('displayname')
+
+        firebase.initializeApp(firebaseConfig)
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+
+                loginform.hidden = true;
+                loggedinuser.hidden = false;
+                displayname.value = user.displayName
+                console.log("signed in uid:", user.uid);
+            } else {
+                loginform.hidden = false;
+                loggedinuser.hidden = true;
+                console.log("signed out");
+            }
+        });
+
+        function logout() {
+            const user = firebase.auth().currentUser;
+            firebase.auth().signOut()
+        }
+
+       
+       function updateprofile(e) {
+                  console.log(e);
+                  e.preventDefault();
+                  const user = firebase.auth().currentUser;
+      
+                  user.updateProfile({
+                      displayName: displayname.value,
+                  })
+              }
+              userinfo.onsubmit = updateprofile
+
+
+        function login(email, password) {
+            return new Promise(
+                (fulfilled, rejected) => {
+                    firebase.auth().signInWithEmailAndPassword(email, password)
+                        .then((userCredential) => {
+                            // Signed in
+                            const user = userCredential.user;
+                            fulfilled(userCredential.user);
+
+                        })
+                        .catch((error) => {
+                            rejected(error.message)
+                        });
+                })
+
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            console.log();
+            const email = document.querySelector('#email').value;
+            const pw = document.querySelector('#password').value;
+            login(email, pw)
+                .then(
+                    (user) => {
+                        console.log("Successful login", user);
+                    }
+                ).catch(
+                    alert
+                )
+        }
+
+    </script>
+  </center>
+</body>
+
+</html>
