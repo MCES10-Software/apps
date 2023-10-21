@@ -10,40 +10,6 @@
   <link rel="icon" type="image/x-icon" href="/ImageSources/favicon.ico">
   <title>Login: MCES10 Software</title>
   <style>
-.button {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.button1 {
-  background-color: #0000cc; 
-  color: white; 
-  border: 2px solid #0000cc;
-}
-
-.button1:hover {
-  background-color: #0000cc;
-  color: black;
-}
-
-.button2 {
-  background-color: #0000cc; 
-  color: white; 
-  border: 2px solid #0000cc;
-}
-
-.button2:hover {
-  background-color: #0000cc;
-  color: black;
-}
 *,
 *:before,
 *:after {
@@ -103,7 +69,7 @@ input {
 input:hover{
   outline: 2px solid #0001;
 }
-input {
+.magicbutton {
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
@@ -155,7 +121,7 @@ input {
       <input id="password" name="password" type="password" placeholder = "Password" name="user" placeholder="Password">
     
       
-      <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="button button1" />
+      <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="magicbutton" />
       <p style="color:white">To Sign Up you need the MCES10 Software Account Companion (M.S.A.C) or <a href="accountsignup.html" style="color:coral">Click Here to SignUp</a></p>
     </form>
     </div>
@@ -167,34 +133,16 @@ input {
               <h1 style="color:white">Welcome</h1>
                 <input type="text" id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
                 <input type="submit" value="Change Display Name" style="border-radius: 5px;height:50px;font-size:10pt" class="button button1"/>
-              <p style="color:#000000">
-                _
-              </p>
-              <p style="color:#000000">
-                _
-              </p>
-              <p style="color:#000000">
-                _
-              </p>
-              <p style="color:#000000">
-                _
-              </p>
-              
+                <p> <a href="downloadlogin.html" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Downloads</a></p>
+                <p>
+                <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Logout</button>
+                </p>
             </form>
       
         </div>
 
         <br/>
-        <p> <a href="downloadlogin.html" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Downloads</a></p>
-        <p style="color:#000000">
-          _
-        </p>
-        <p style="color:#000000">
-          _
-        </p>
-        <p>
-        <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Logout</button>
-        </p>
+        
     </div>
 
     <script>
