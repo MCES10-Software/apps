@@ -66,11 +66,14 @@ li {
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
  padding: 1em 0;
- position: absolute; /*WITH RESPECT TO PARENT*/
+ position: fixed;
+ bottom: 100px;
+ right: 0;
+ width: 0;
+ border: 3px solid #ffffff;
  display: none;
  border-radius: 8px;
  top: 35px;
- offset: 10px 30px;
 }
 .dropdown li + li {
  margin-top: 10px;
