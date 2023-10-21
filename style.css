@@ -67,10 +67,10 @@ li {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
  padding: 1em 0;
  position: fixed;
- bottom: 100px;
+ top: 100px;
  right: 0;
  width: 0;
- border: 3px solid #ffffff;
+
  display: none;
  border-radius: 8px;
  top: 35px;
