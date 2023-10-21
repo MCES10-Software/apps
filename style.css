@@ -1,4 +1,8 @@
-html, body {
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
   height: 100%;
   width: 100%;
   background: linear-gradient(150deg, rgba(0,0,0,1) 0%, rgba(6,6,208,1) 43%, rgba(6,6,227,1) 68%, rgba(0,212,255,1) 89%);
