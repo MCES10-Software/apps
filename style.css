@@ -115,7 +115,7 @@ input[type=checkbox]{
  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
  backdrop-filter: blur(10px);
  -webkit-backdrop-filter: blur(10px);
- border-radius: 20px;
+ border-radius: 10px;
  border:1px solid rgba(255, 255, 255, 0.18);
  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);;
  right: 0;
@@ -239,8 +239,8 @@ body {
 #s1{
      height:100px;
      width:100px;
-     border:2px solid #af52de;
-     border-top:2px solid #000066;
+     border:2px solid #ffffff;
+     border-top:2px solid #0000cc;
      transform-origin:center;
      box-sizing:border-box ;
      padding:5px;
