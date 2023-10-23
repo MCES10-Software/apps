@@ -17,6 +17,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  position: relative; /* or position: static; */
 }
 form {
   height: 500px;
@@ -33,6 +34,7 @@ form {
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 form * {
   font-family: "Poppins", sans-serif;
@@ -41,6 +43,7 @@ form * {
   outline: none;
   border: none;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 form h3 {
   font-size: 40px;
@@ -48,6 +51,7 @@ form h3 {
   line-height: 42px;
   text-align: center;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 
 label {
@@ -56,6 +60,7 @@ label {
   font-size: 16px;
   font-weight: 500;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 input {
   display: block;
@@ -68,14 +73,17 @@ input {
   font-size: 14px;
   font-weight: 300;
   z-index: 700;
+  position: relative;
 }
 ::placeholder {
   color: #e1e1e1;
+  position: relative; /* or position: static; */
 }
 
 input:hover{
   outline: 2px solid #0001;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 .magicbutton {
   margin-top: 50px;
@@ -88,6 +96,7 @@ input:hover{
   border-radius: 5px;
   cursor: pointer;
   z-index: 700;
+  position: relative; /* or position: static; */
 }
 </style>
     <title>Login: MCES10 Software</title>
