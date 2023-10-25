@@ -10,106 +10,52 @@
   <link rel="icon" type="image/x-icon" href="/ImageSources/favicon.ico">
   <title>Login: MCES10 Software</title>
   <style>
-    
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  position: relative; /* or position: static; */
-}
-form {
-  height: 500px;
-  width: 300px;
-  object-fit: cover;
-  background-color: rgba(255, 255, 255, 0.03);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-  z-index: 700;
-  position: relative; /* or position: static; */
-}
-form * {
-  font-family: "Poppins", sans-serif;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  outline: none;
+.button {
   border: none;
-  z-index: 700;
-  position: relative; /* or position: static; */
-}
-form h3 {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 42px;
+  color: white;
+  padding: 16px 32px;
   text-align: center;
-  z-index: 700;
-  position: relative; /* or position: static; */
-}
-
-label {
-  display: block;
-  margin-top: 30px;
+  text-decoration: none;
+  
   font-size: 16px;
-  font-weight: 500;
-  z-index: 700;
-  position: relative; /* or position: static; */
-}
-input {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-  z-index: 700;
-  position: relative;
-}
-::placeholder {
-  color: #e1e1e1;
-  position: relative; /* or position: static; */
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-input:hover{
-  outline: 2px solid #0001;
-  z-index: 700;
-  position: relative; /* or position: static; */
+.button1 {
+  background-color: #000066; 
+  color: coral; 
+  border: 2px solid #000066;
 }
-.magicbutton {
-  margin-top: 50px;
-  width: 100%;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 700;
-  position: relative; /* or position: static; */
+
+.button1:hover {
+  background-color: #000066;
+  color: white;
 }
+
+.button2 {
+  background-color: #000066; 
+  color: coral; 
+  border: 2px solid #000066;
+}
+
+.button2:hover {
+  background-color: #000066;
+  color: white;
+}
+
 </style>
-    <title>Login: MCES10 Software</title>
 </head>
 <script src="./config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
 
 
-<body style="background-color:#000000;">
-    <nav class="navbar">
+<body style="background-color:darkblue;">
+  <nav class="navbar">
  <!-- LOGO -->
- <div class="logo">MCES10 Software</div>
+ <div class="logo">W.D.T</div>
  <!-- NAVIGATION MENU -->
  <ul class="nav-links">
  <!-- USING CHECKBOX HACK -->
@@ -118,9 +64,10 @@ input:hover{
  <!-- NAVIGATION MENUS -->
  <div class="menu">
  <li><a href="index.html">Home</a></li>
- <li><a href="apps.html">Apps</a></li>
+ <li><a href="downloadlogin.html">Download</a></li>
  <li><a href="accountlogin.html">Account</a></li>
-   <li><a href="support.html">Support</a></li>
+   <li><a href="feedback.html">Support</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
  <li><a href="about.html">About</a></li>
   <li><a href="terms.html">Terms</a></li>
  </div>
@@ -129,38 +76,48 @@ input:hover{
 <center>
     <div id="loginform" hidden>
         <form>
-     
-      <h3>Login</h3>
-
-      <label for="email">Email</label>
-      <input id="email" name="email" type = "email="user placeholder = "Email Address" name="user" placeholder="Email Address" style="z-index: 700;"/>
-    
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" placeholder = "Password" name="user" placeholder="Password">
-    
-      
-      <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="magicbutton" />
+            <div>
+                <h2 style="color:white">Login</h2>
+                <input id="email" name="email" type = "email="user placeholder = "Email Address" name="user" placeholder="Email Address" style="border-radius: 5px;height:30px;font-size:14pt;" class="button button1" />
+            </div>
+            <div>
+                
+                <input id="password" name="password" type="password" placeholder = "Password" name="user" placeholder="Password" style="border-radius: 5px;height:30px;font-size:14pt"class="button button1" />
+            </div>
+          <p>
+            <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="button button1" /></p>
+        </form>
       <p style="color:white">To Sign Up you need the MCES10 Software Account Companion (M.S.A.C) or <a href="accountsignup.html" style="color:coral">Click Here to SignUp</a></p>
-    </form>
-    </div>
 
+    </div>
 
     <div id="loggedinuser" hidden>
         <div>
             <form id="userinfo">
               <h1 style="color:white">Welcome</h1>
-                <input type="text" id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="magicbutton">
-                <input type="submit" value="Change Display Name" style="border-radius: 5px;height:50px;font-size:10pt" class="magicbutton"/>
-                <p><button style="border-radius: 5px;height:50px;font-size:14pt" class="magicbutton"><a  href="downloadlogin.html">Downloads</a></button></p>
-                <p>
-                <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="magicbutton">Logout</button>
-                </p>
+                <input type="text" id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
+                <input type="submit" value="Change Display Name" style="border-radius: 5px;height:50px;font-size:10pt" class="button button1"/>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              
             </form>
       
         </div>
 
         <br/>
-        
+      <p>
+        <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Logout</button>
+        </p>
     </div>
 
     <script>
