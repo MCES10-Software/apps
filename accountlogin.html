@@ -46,13 +46,14 @@
 }
 
 </style>
-</head>
+
 <script src="./config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    
+</head>
 
-
-<body style="background-color:darkblue;">
+<body style="background-color:#000000;">
   <nav class="navbar">
  <!-- LOGO -->
  <div class="logo">W.D.T</div>
@@ -73,6 +74,52 @@
  </div>
  </ul>
  </nav>
+<center>
+    <div id="loginform" hidden>
+        <form>
+            <div>
+                <h2 style="color:white">Login</h2>
+                <input id="email" name="email" type = "email="user placeholder = "Email Address" name="user" placeholder="Email Address" style="border-radius: 5px;height:30px;font-size:14pt;" class="button button1" />
+            </div>
+            <div>
+                
+                <input id="password" name="password" type="password" placeholder = "Password" name="user" placeholder="Password" style="border-radius: 5px;height:30px;font-size:14pt"class="button button1" />
+            </div>
+          <p>
+            <input type="submit" value="Login" style="border-radius: 5px;height:50px;font-size:14pt" class="button button1" /></p>
+        </form>
+      <p style="color:white">To Sign Up you need the MCES10 Software Account Companion (M.S.A.C) or <a href="accountsignup.html" style="color:coral">Click Here to SignUp</a></p>
+
+    </div>
+
+    <div id="loggedinuser" hidden>
+        <div>
+            <form id="userinfo">
+              <h1 style="color:white">Welcome</h1>
+                <input type="text" id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
+                <input type="submit" value="Change Display Name" style="border-radius: 5px;height:50px;font-size:10pt" class="button button1"/>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              <p style="color:black">
+                _
+              </p>
+              
+            </form>
+      
+        </div>
+
+        <br/>
+      <p>
+        <button onclick="logout()" style="border-radius: 5px;height:50px;font-size:14pt" class="button button2">Logout</button>
+        </p>
+    </div>
 <center>
     <div id="loginform" hidden>
         <form>
