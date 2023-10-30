@@ -124,11 +124,7 @@ input[type=checkbox]:checked ~ .menu{
   height: auto;
   width: 90%;
 }
- img {
-  height: auto-flow;
-  width: 50%;
-}
-
+ 
 /*.loader,
 .loader:after {
   border-radius: 50%;
