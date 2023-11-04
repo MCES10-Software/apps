@@ -252,19 +252,12 @@ backdrop-filter: blur(12.2px);
 border: 1px solid rgba(255, 255, 255, 1);
 }
  /* Custom cursor */ 
- /* Define the custom cursor */
- .custom-cursor {
-  cursor: url('ImageSources/Cursor/Normal.png'), auto;
-}
+ .custom {
+  /* The second value here is a fallback. */
+  cursor: url(ImageSources/Cursor/Normal.png), auto;
 
-/* Define the custom cursor when hovering over an element */
-.custom-cursor:hover {
-  cursor: url('ImageSources/Cursor/Normal.png'), auto;
-}
-
-/* Style for the element */
-.element {
-  width: 100px;
-  height: 100px;
-  background-color: #3498db;
+  /* You may need coordinates to adjust the pointer
+     for example, the custom cursor is circular and you want
+     the middle to be where you click */
+  cursor: url(ImageSources/Cursor/Hover.png) 15 15, move;
 }
