@@ -251,3 +251,20 @@ backdrop-filter: blur(12.2px);
 -webkit-backdrop-filter: blur(12.2px);
 border: 1px solid rgba(255, 255, 255, 1);
 }
+ /* Custom cursor */ 
+ /* Define the custom cursor */
+ .custom-cursor {
+  cursor: url('ImageSources/Cursor/Normal.png'), auto;
+}
+
+/* Define the custom cursor when hovering over an element */
+.custom-cursor:hover {
+  cursor: url('ImageSources/Cursor/Normal.png'), auto;
+}
+
+/* Style for the element */
+.element {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+}
