@@ -11,6 +11,12 @@ html, body {
 /* HELEVETICA */
 body {
  font-family: "helvetica";
+ cursor: url('ImageSources/Cursor/Normal.png'), auto;
+}
+
+/* Define the custom cursor when hovering over the body */
+body:hover {
+  cursor: url('ImageSources/Cursor/Hover.png'), auto;
 }
 a {
  text-decoration: none;
