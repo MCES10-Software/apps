@@ -11,17 +11,11 @@ html, body {
 /* HELEVETICA */
 body {
  font-family: "helvetica";
- cursor: url('ImageSources/Cursor/Normal.png'), auto;
-    cursor: url('ImageSources/Cursor/Normal.png'), auto, default; /* Standard cursor declaration */
-    cursor: url('ImageSources/Cursor/Normal.png'), auto, default, -webkit-image-set(url('ImageSources/Cursor/Normal1.png') 1x, url('ImageSources/Cursor/Normal2.png') 2x);
+
 }
 
 /* Define the custom cursor when hovering over the body */
-body:hover {
-  cursor: url('ImageSources/Cursor/Hover.png'), auto;
-    cursor: url('ImageSources/Cursor/Hover.png'), auto, default; /* Standard cursor declaration */
-    cursor: url('ImageSources/Cursor/Hover.png'), auto, default, -webkit-image-set(url('ImageSources/Cursor/Hover1.png') 1x, url('ImageSources/Cursor/Hover2.png') 2x);
-  }
+
 a {
  text-decoration: none;
 }
