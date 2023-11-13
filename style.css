@@ -107,7 +107,7 @@ input[type=checkbox]{
 @media (max-width: 768px) {
 .menu { 
  display:none;
- position: absolute;top: 101%;
+ position: absolute;top: 69px;
  background-color: rgba(255, 255, 255, 0.23);
   border-radius: 16px;
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.1);
@@ -227,7 +227,7 @@ body {
 #s1{
      height:100px;
      width:100px;
-     border:2px solid #af52de;
+     border:2px solid #ffffff;
      border-top:2px solid #000066;
      transform-origin:center;
      box-sizing:border-box ;
@@ -264,22 +264,3 @@ body {
   background: linear-gradient(150deg, rgba(0,0,0,1) 0%, rgba(6,6,208,1) 43%, rgba(6,6,227,1) 68%, rgba(0,212,255,1) 89%);
 }
 
-.loginwindow {
-  /* From https://css.glass */
-background: rgba(255, 255, 255, 0.56);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(12.2px);
--webkit-backdrop-filter: blur(12.2px);
-border: 1px solid rgba(255, 255, 255, 1);
-}
- /* Custom cursor */ 
- .custom {
-  /* The second value here is a fallback. */
-  cursor: url(ImageSources/Cursor/Normal.png), auto;
-
-  /* You may need coordinates to adjust the pointer
-     for example, the custom cursor is circular and you want
-     the middle to be where you click */
-  cursor: url(ImageSources/Cursor/Hover.png) 15 15, move;
-}
