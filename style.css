@@ -107,7 +107,7 @@ input[type=checkbox]{
 @media (max-width: 768px) {
 .menu { 
  display:none;
- position: absolute;top: 69px;
+ position: absolute;margin-top: 20px;
  background-color: rgba(255, 255, 255, 0.23);
   border-radius: 16px;
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.1);
