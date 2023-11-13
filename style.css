@@ -107,7 +107,7 @@ input[type=checkbox]{
 @media (max-width: 768px) {
 .menu { 
  display:none;
- position: absolute;
+ position: absolute;top: 101%;
  background-color: rgba(255, 255, 255, 0.23);
   border-radius: 16px;
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@ input[type=checkbox]{
 }
 .menu li:hover {
  display: inline-block;
- background-color: #0000cc;
+ background-color: #000000;
  transition: 0.3s ease;
 }
 .menu li + li {
