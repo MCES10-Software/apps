@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase User UID</title>
-    <!-- Include Firebase JavaScript SDK from CDN -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
-    <!-- Replace with your Firebase config -->
-    <script src="config.js"></script>
+    <title>User UID Display</title>
+    <!-- Add Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
 </head>
 <body>
+    <h1>User UID Display</h1>
 
-    <h1>Firebase User UID</h1>
-
-    <div id="user-uid">
-        <p>User UID:</p>
-        <span id="uid"></span>
-    </div>
-
+    <!-- Display user UID -->
+    <div id="uid"></div>
 
     <script>
-     // Listen for changes in the authentication state
-firebase.auth().onAuthStateChanged(user => {
-    const uidElement = document.getElementById('uid');
+        // Initialize Firebase with your project config
+        const firebaseConfig = {
+    apiKey: "AIzaSyAlHDidKtotbYgfgVRVbmQNyaftWJkVDlU",
+    authDomain: "mces10-software.firebaseapp.com",
+    projectId: "mces10-software",
+    storageBucket: "mces10-software.appspot.com",
+    messagingSenderId: "41062100813",
+    appId: "1:41062100813:web:269ec118c0fb3796b2d104",
+    measurementId: "G-Y32J4DR0E9"
+  };
 
-    if (user) {
-        // User is signed in, display UID
-        uidElement.textContent = user.uid;
-    } else {
-        // User is signed out, clear UID
-        uidElement.textContent = 'Not signed in';
-    }
-});
+        firebase.initializeApp(firebaseConfig);
 
+        // Get the current user
+        const user = firebase.auth().currentUser;
 
-
+        if (user) {
+            // Display user UID
+            document.getElementById('uid').innerHTML = `User UID: ${user.uid}`;
+        } else {
+            // User not signed in
+            document.getElementById('uid').innerHTML = 'User not signed in.';
+        }
     </script>
-
 </body>
 </html>
