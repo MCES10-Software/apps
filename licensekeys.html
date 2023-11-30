@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase User UID</title>
+    <!-- Include Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+    <!-- Replace with your Firebase config -->
+    <script src="config.js"></script>
+</head>
+<body>
+
+    <h1>Firebase User UID</h1>
+
+    <div id="user-uid">
+        <p>User UID:</p>
+        <span id="uid"></span>
+    </div>
+
+    <script>
+        // Listen for changes in the authentication state
+firebase.auth().onAuthStateChanged(user => {
+    const uidElement = document.getElementById('uid');
+
+    if (user) {
+        // User is signed in, display UID
+        uidElement.textContent = user.uid;
+    } else {
+        // User is signed out, clear UID
+        uidElement.textContent = 'Not signed in';
+    }
+});
+
+
+    </script>
+
+</body>
+</html>
