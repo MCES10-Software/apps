@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase User UID</title>
-    <!-- Include Firebase JavaScript SDK -->
+    <!-- Include Firebase JavaScript SDK from CDN -->
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
     <!-- Replace with your Firebase config -->
@@ -19,8 +19,9 @@
         <span id="uid"></span>
     </div>
 
+
     <script>
-        // Listen for changes in the authentication state
+     // Listen for changes in the authentication state
 firebase.auth().onAuthStateChanged(user => {
     const uidElement = document.getElementById('uid');
 
@@ -32,6 +33,7 @@ firebase.auth().onAuthStateChanged(user => {
         uidElement.textContent = 'Not signed in';
     }
 });
+
 
 
     </script>
