@@ -1,43 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User UID Display</title>
-    <!-- Add Firebase JavaScript SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
-</head>
-<body>
-    <h1>User UID Display</h1>
+   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="button.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="/ImageSources/favicon.ico">
+  <title>Login: MCES10 Software</title>
+ <style>
+.button {
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
-    <!-- Display user UID -->
-    <div id="uid"></div>
+.button1 {
+  background-color: #000000; 
+  color: white; 
+  border: 2px solid #000000;
+}
+
+.button1:hover {
+  background-color: #000000;
+  color: coral;
+}
+
+.button2 {
+  background-color: #000000; 
+  color: white; 
+  border: 2px solid #000000;
+}
+
+.button2:hover {
+  background-color: #000000;
+  color: coral;
+}
+
+</style>
+<script src="./config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    
+</head>
+
+<body style="background-color:#000000;">
+<nav class="navbar">
+ <!-- LOGO -->
+ <div class="logo">MCES10 Software</div>
+ <!-- NAVIGATION MENU -->
+ <ul class="nav-links">
+ <!-- USING CHECKBOX HACK -->
+ <input type="checkbox" id="checkbox_toggle" />
+ <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+ <!-- NAVIGATION MENUS -->
+ <div class="menu">
+ <li><a href="index.html">Home</a></li>
+ <li><a href="apps.html">Apps</a></li>
+ <li><a href="accountlogin.html">Account</a></li>
+   <li><a href="support.html">Support</a></li>
+ <li><a href="about.html">About</a></li>
+  <li><a href="terms.html">Terms</a></li>
+ </div>
+ </ul>
+ </nav>
+<center>
+   
+<center>
+    <div id="loginform" hidden>
+        <form>
+            <div>
+                <h2 style="color:white">Oops you must be logged in to see this</h2>
+                
+            </div>
+            <div>
+                
+              
+            </div>
+
+            
+      
+
+    </div>
+
+    <div id="loggedinuser" hidden>
+        <div>
+            <form id="userinfo">
+              <h1 style="color:white">License Key</h1>
+                <input id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
+              <p>Your license key not working. Contact support we will activate it limited time only. 2023-2024(March)</p>
+              <h3 id="uid"></h3>
+              
+            </form>
+      
+        </div>
+
+        <br/>
+      
+    </div>
 
     <script>
-        // Initialize Firebase with your project config
-        const firebaseConfig = {
-    apiKey: "AIzaSyAlHDidKtotbYgfgVRVbmQNyaftWJkVDlU",
-    authDomain: "mces10-software.firebaseapp.com",
-    projectId: "mces10-software",
-    storageBucket: "mces10-software.appspot.com",
-    messagingSenderId: "41062100813",
-    appId: "1:41062100813:web:269ec118c0fb3796b2d104",
-    measurementId: "G-Y32J4DR0E9"
-  };
+        const loginform = document.getElementById('loginform');
+        const form = loginform.firstElementChild;
+        const loggedinuser = document.getElementById('loggedinuser')
+        const userinfo = document.getElementById('userinfo')
+        const displayname = document.getElementById('displayname')
 
-        firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig)
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
 
-        // Get the current user
-        const user = firebase.auth().currentUser;
+                loginform.hidden = true;
+                loggedinuser.hidden = false;
+                displayname.value = user.displayName
+                console.log("signed in uid:", user.uid);
+            } else {
+                loginform.hidden = false;
+                loggedinuser.hidden = true;
+                console.log("signed out");
+            }
+        });
 
-        if (user) {
-            // Display user UID
-            document.getElementById('uid').innerHTML = `User UID: ${user.uid}`;
-        } else {
-            // User not signed in
-            document.getElementById('uid').innerHTML = 'User not signed in.';
+        function logout() {
+            const user = firebase.auth().currentUser;
+            firebase.auth().signOut()
         }
+        const user = firebase.auth().currentUser;
+            if (user !== null) {
+        // The user object has basic properties such as display name, email, etc.
+        const displayName = user.displayName;
+        const email = user.email;
+        const photoURL = user.photoURL;
+        const emailVerified = user.emailVerified;
+        const uid = user.uid;
+}
+       
+       function updateprofile(e) {
+                  console.log(e);
+                  e.preventDefault();
+                  const user = firebase.auth().currentUser;
+      
+                  user.updateProfile({
+                      displayName: displayname.value,
+                  })
+              }
+              userinfo.onsubmit = updateprofile
+
+
+        function login(email, password) {
+            return new Promise(
+                (fulfilled, rejected) => {
+                    firebase.auth().signInWithEmailAndPassword(email, password)
+                        .then((userCredential) => {
+                            // Signed in
+                            const user = userCredential.user;
+                            fulfilled(userCredential.user);
+
+                        })
+                        .catch((error) => {
+                            rejected(error.message)
+                        });
+                })
+
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            console.log();
+            const email = document.querySelector('#email').value;
+            const pw = document.querySelector('#password').value;
+            login(email, pw)
+                .then(
+                    (user) => {
+                        console.log("Successful login", user);
+                    }
+                ).catch(
+                    alert
+                )
+        }
+
     </script>
+  </center>
 </body>
+
 </html>
