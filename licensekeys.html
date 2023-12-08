@@ -95,7 +95,7 @@
         <div>
             <form id="userinfo">
               <h1 style="color:white">License Key</h1>
-                <input id="displayname" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
+                <input id="currentUser.userinfo.uid" style="height:50px;font-size:14pt;border-radius: 5px" class="button button1">
               <p>Your license key not working. Contact support we will activate it limited time only. 2023-2024(March)</p>
               <h1>Download the app to view your license key</h1>
               
@@ -134,15 +134,18 @@
             firebase.auth().signOut()
         }
         const user = firebase.auth().currentUser;
-            if (user !== null) {
-        // The user object has basic properties such as display name, email, etc.
-        const displayName = user.displayName;
-        const email = user.email;
-        const photoURL = user.photoURL;
-        const emailVerified = user.emailVerified;
-        const uid = user.uid;
+        if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+  const email = user.email;
+  const photoURL = user.photoURL;
+  const emailVerified = user.emailVerified;
+
+  // The user's ID, unique to the Firebase project. Do NOT use
+  // this value to authenticate with your backend server, if
+  // you have one. Use User.getIdToken() instead.
+  const uid = user.uid;
 }
-       
        function updateprofile(e) {
                   console.log(e);
                   e.preventDefault();
