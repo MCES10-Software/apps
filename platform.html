@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .platform-info {
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="platform-info" id="platform-info">
+        <!-- Platform info will be inserted here -->
+    </div>
+    <script>
+        document.getElementById('platform-info').innerText = "You are using: " + navigator.platform;
+    </script>
+</body>
+</html>
